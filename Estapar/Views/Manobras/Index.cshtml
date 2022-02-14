@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Estapar.Models.Manobra>
+
+@{
+    ViewData["Title"] = "Manobras";
+}
+
+<h1>Manobras</h1>
+
+<p>
+    <a asp-action="Create">Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Manobrista)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Carro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dat_manobra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tip_manobra)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Manobrista.nom_manobrista)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Carro.nom_marca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dat_manobra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tip_manobra)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

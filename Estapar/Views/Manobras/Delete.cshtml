@@ -1,0 +1,45 @@
+﻿@model Estapar.Models.Manobra
+
+@{
+    ViewData["Title"] = "Ecluir";
+}
+
+<h1>Excluir</h1>
+
+<h3>Deseja realmente excluir o registro?</h3>
+<div>
+    <h4>Manobra</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Manobrista)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Manobrista.nom_manobrista)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Carro)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Carro.nom_marca)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.dat_manobra)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.dat_manobra)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.tip_manobra)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tip_manobra)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Excluir" class="btn btn-danger" /> |
+        <a asp-action="Index">Voltar</a>
+    </form>
+</div>

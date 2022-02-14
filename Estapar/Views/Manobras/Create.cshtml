@@ -1,0 +1,58 @@
+﻿@model Estapar.Models.Manobra
+
+@{
+    ViewData["Title"] = "Cadastrar";
+}
+
+<h1>Cadastrar</h1>
+
+<h4>Manobra</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           
+            <div class="form-group">
+                @Html.LabelFor(model => model.Manobrista, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                     @Html.DropDownList("ManobristaId", (SelectList)ViewBag.ManobristaId, "Selecione", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Carro, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                     @Html.DropDownList("CarroId", (SelectList)ViewBag.CarroId, "Selecione", new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="dat_manobra" class="control-label"></label>
+                <input asp-for="dat_manobra" class="form-control" />
+                <span asp-validation-for="dat_manobra" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.tip_manobra, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("Tipo", new List<SelectListItem>
+                    {
+                       new SelectListItem{ Text="Recepção de Veiculo", Value = "1" } ,
+                       new SelectListItem{ Text="Retorno do Veiculo ao Cliente", Value = "2" }
+                    ,
+                    })                
+                </div>            
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Criar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="Index">Lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
