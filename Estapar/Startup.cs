@@ -32,11 +32,6 @@ namespace Estapar
                  .AddDefaultTokenProviders();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
-            //services.AddTransient<IManobristaRepository, ManobristaRepository>();
-            //services.AddTransient<ICarroRepository, CarroRepository>();
-            //services.AddTransient<IManobraRepository, ManobraRepository>();
-
             services.AddControllersWithViews();
 
             services.AddMemoryCache();
